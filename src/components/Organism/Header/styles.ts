@@ -52,7 +52,7 @@ export const NavContainer = styled.div`
 export const MobileNavContainer = styled.div<MobileNavProps>`
   position: absolute;
   top: 54px;
-  left: -82px;
+  left: -83px;
 
   display: none;
 

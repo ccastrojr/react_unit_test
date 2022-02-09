@@ -37,8 +37,8 @@ describe('Cart component tests', () => {
 
   test('click on cart to redirect', () => {
     jest.spyOn(hookCart, 'useCart').mockReturnValue({
-      products: [{ ...cartProductMock }],
-      getTotalPrice: 20,
+      products: [],
+      getTotalPrice: 0,
       addToCart: jest.fn(),
       removeToCart: jest.fn(),
     });
