@@ -24,7 +24,7 @@ describe('ProductItem component tests', () => {
       products: [{ ...cartProductMock }],
       getTotalPrice: 0,
       addToCart: mockAddToCart,
-      removeToCard: jest.fn(),
+      removeToCart: jest.fn(),
     });
 
     const { getByText, getByTestId } = render(

@@ -120,7 +120,7 @@ export const CartItem = styled.li`
   }
 `;
 
-export const EmptyCard = styled.div`
+export const EmptyCart = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;

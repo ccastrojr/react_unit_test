@@ -13,7 +13,7 @@ describe('Header component tests', () => {
       products: [{ ...cartProductMock }],
       getTotalPrice: 20,
       addToCart: jest.fn(),
-      removeToCard: jest.fn(),
+      removeToCart: jest.fn(),
     });
 
     const { getAllByText, getByTestId, getAllByTestId } = render(<Header />, {

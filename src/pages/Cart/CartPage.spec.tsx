@@ -1,6 +1,7 @@
 import React from 'react';
-import { render } from '@testing-library/react';
+import { render, fireEvent } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
+import { act } from 'react-dom/test-utils';
 import * as hookCart from '../../hooks/Cart';
 
 import Cart from '.';
@@ -22,7 +23,7 @@ describe('Cart page component tests', () => {
       products: [],
       getTotalPrice: 0,
       addToCart: jest.fn(),
-      removeToCard: jest.fn(),
+      removeToCart: jest.fn(),
     });
 
     const { getByTestId } = render(<Cart />);
@@ -35,7 +36,7 @@ describe('Cart page component tests', () => {
       products: [{ ...cartProductMock }],
       getTotalPrice: 20,
       addToCart: jest.fn(),
-      removeToCard: jest.fn(),
+      removeToCart: jest.fn(),
     });
 
     const { getByText } = render(<Cart />);
@@ -45,19 +46,19 @@ describe('Cart page component tests', () => {
     expect(itemOnCart).toBeInTheDocument();
   });
 
-  test('remove item to cart', () => {
+  test('remove item to cart', async () => {
     jest.spyOn(hookCart, 'useCart').mockReturnValue({
       products: [{ ...cartProductMock }],
       getTotalPrice: 20,
       addToCart: jest.fn(),
-      removeToCard: mockedRemoveToCart,
+      removeToCart: mockedRemoveToCart,
     });
 
     const { getByTestId } = render(<Cart />);
 
     const itemToBeRemoved = getByTestId('remove_item_cart');
-
     userEvent.click(itemToBeRemoved);
+
     expect(mockedRemoveToCart).toBeCalledTimes(1);
   });
 });

@@ -2,12 +2,12 @@ import React from 'react';
 import { renderHook } from '@testing-library/react-hooks';
 import { waitFor, act } from '@testing-library/react';
 
-import { CardProvider, useCart } from '.';
+import { CartProvider, useCart } from '.';
 
 describe('Cart hook tests', () => {
   test('add items to local storage and get it when screen is loaded', async () => {
     const { result } = renderHook(() => useCart(), {
-      wrapper: CardProvider,
+      wrapper: CartProvider,
     });
 
     const itemAddedToCart = {

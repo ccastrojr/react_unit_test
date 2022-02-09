@@ -12,7 +12,7 @@ describe('Cart component tests', () => {
     jest.spyOn(hookCart, 'useCart').mockReturnValue({
       products: [],
       addToCart: jest.fn(),
-      removeToCard: jest.fn(),
+      removeToCart: jest.fn(),
       getTotalPrice: 0,
     });
 
@@ -26,7 +26,7 @@ describe('Cart component tests', () => {
       products: [{ ...cartProductMock }],
       getTotalPrice: 20,
       addToCart: jest.fn(),
-      removeToCard: jest.fn(),
+      removeToCart: jest.fn(),
     });
 
     const { getByText } = render(<Cart />, { wrapper: BrowserRouter });
@@ -40,7 +40,7 @@ describe('Cart component tests', () => {
       products: [{ ...cartProductMock }],
       getTotalPrice: 20,
       addToCart: jest.fn(),
-      removeToCard: jest.fn(),
+      removeToCart: jest.fn(),
     });
 
     const { getByTestId } = render(<Cart />, { wrapper: BrowserRouter });

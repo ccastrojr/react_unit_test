@@ -13,20 +13,20 @@ import {
   CartItemsList,
   CartItem,
   PageFooter,
-  EmptyCard,
+  EmptyCart,
   FinalPriceContainer,
 } from './styles';
 
 const Cart: React.FC = () => {
-  const { products, getTotalPrice, removeToCard } = useCart();
+  const { products, getTotalPrice, removeToCart } = useCart();
   const { addToast } = useToast();
 
   return (
     <Container>
       {products.length === 0 ? (
-        <EmptyCard data-testid="empty_cart_container">
+        <EmptyCart data-testid="empty_cart_container">
           <h1>Sem itens no seu carrinho :(</h1>
-        </EmptyCard>
+        </EmptyCart>
       ) : (
         <>
           <Title>Seu carrinho</Title>
@@ -49,7 +49,7 @@ const Cart: React.FC = () => {
                 <button
                   type="button"
                   onClick={() => {
-                    removeToCard(item.id);
+                    removeToCart(item.id);
                     addToast({
                       type: 'info',
                       title: 'Item removido do seu carrinho.',

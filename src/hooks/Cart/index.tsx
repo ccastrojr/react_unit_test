@@ -14,16 +14,16 @@ interface CartItem extends Product {
   count: number;
 }
 
-interface CardContextData {
+interface CartContextData {
   products: CartItem[];
   addToCart(item: Product): void;
-  removeToCard(id: number): void;
+  removeToCart(id: number): void;
   getTotalPrice: number;
 }
 
-const CartContext = createContext<CardContextData>({} as CardContextData);
+const CartContext = createContext<CartContextData>({} as CartContextData);
 
-const CardProvider: React.FC = ({ children }) => {
+const CartProvider: React.FC = ({ children }) => {
   const getLocalStorageItems = (): CartItem[] => {
     const itemsStorage = localStorage.getItem('@ReactUnitTest:cart');
     if (itemsStorage) return JSON.parse(itemsStorage);
@@ -57,7 +57,7 @@ const CardProvider: React.FC = ({ children }) => {
     [products],
   );
 
-  const removeToCard = useCallback(
+  const removeToCart = useCallback(
     (id: number) => {
       const productsStored = [...products];
       const index = productsStored.findIndex(item => item.id === id);
@@ -83,19 +83,19 @@ const CardProvider: React.FC = ({ children }) => {
 
   return (
     <CartContext.Provider
-      value={{ products, addToCart, removeToCard, getTotalPrice }}
+      value={{ products, addToCart, removeToCart, getTotalPrice }}
     >
       {children}
     </CartContext.Provider>
   );
 };
 
-function useCart(): CardContextData {
+function useCart(): CartContextData {
   const context = useContext(CartContext);
 
-  if (!context) throw new Error('useCart must be used with CardProvider');
+  if (!context) throw new Error('useCart must be used with CartProvider');
 
   return context;
 }
 
-export { CardProvider, useCart };
+export { CartProvider, useCart };
