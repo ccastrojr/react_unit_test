@@ -10,7 +10,7 @@
 ## ✏️ About
 
 Project used in Zappts live on 02/11/2022 about implementing unit tests with Jest in ReactJS.
-The live is available in Portuguese on [YouTube](...).
+The live is available in Portuguese on [YouTube](https://youtube.com/watch?v=wTrjx54wDgM).
 
 I hope you enjoy :)
 
